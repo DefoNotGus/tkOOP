@@ -1,4 +1,3 @@
-# tkOOP.py
 import tkinter as tk
 
 # List to track Tkinter actions
@@ -32,10 +31,10 @@ class ScreenWidget:
 
 # Button class
 class ButtonWidget:
-    def __init__(self, parent, text="Button", bg="lightgray", command=None):
+    def __init__(self, parent, text="Button", bg="lightgray", command=None, x=0, y=0):
         self.button = tk.Button(parent.root if isinstance(parent, ScreenWidget) else parent.frame, text=text, bg=bg, width=15, height=2, command=command)
-        self.button.pack(pady=5)  # Use pack for better layout
-        yourTkCode.append(f"tk.Button(text='{text}', bg='{bg}', width=15, height=2, command={command})\nbutton.pack(pady=5)")
+        self.button.place(x=x, y=y)  # Use place to position
+        yourTkCode.append(f"tk.Button(text='{text}', bg='{bg}', width=15, height=2, command={command})\nbutton.place(x={x}, y={y})")
 
     def set_width(self, width):
         self.button.config(width=width)
@@ -55,10 +54,10 @@ class ButtonWidget:
 
 # Input class
 class InputWidget:
-    def __init__(self, parent, bg="white"):
+    def __init__(self, parent, bg="white", x=0, y=0):
         self.entry = tk.Entry(parent.root if isinstance(parent, ScreenWidget) else parent.frame, bg=bg, width=25)
-        self.entry.pack(pady=5)  # Use pack for better layout
-        yourTkCode.append(f"tk.Entry(bg='{bg}', width=25)\nentry.pack(pady=5)")
+        self.entry.place(x=x, y=y)  # Use place to position
+        yourTkCode.append(f"tk.Entry(bg='{bg}', width=25)\nentry.place(x={x}, y={y})")
 
     def set_width(self, width):
         self.entry.config(width=width)
@@ -66,7 +65,7 @@ class InputWidget:
 
 # Image class for PNG images with resizing functionality
 class ImageWidget:
-    def __init__(self, parent, image_path=None, width=None, height=None):
+    def __init__(self, parent, image_path=None, width=None, height=None, x=0, y=0):
         self.image_path = image_path
         self.original_image = tk.PhotoImage(file=image_path) if image_path else None
         self.image = self.original_image
@@ -75,8 +74,8 @@ class ImageWidget:
             self.set_size(width, height)
 
         self.label = tk.Label(parent.root if isinstance(parent, ScreenWidget) else parent.frame, image=self.image)
-        self.label.pack(pady=5)  # Use pack for better layout
-        yourTkCode.append(f"tk.PhotoImage(file='{image_path}')\ntk.Label(image=original_image)\nlabel.pack(pady=5)")
+        self.label.place(x=x, y=y)  # Use place to position
+        yourTkCode.append(f"tk.PhotoImage(file='{image_path}')\ntk.Label(image=original_image)\nlabel.place(x={x}, y={y})")
 
     def set_size(self, width, height):
         if self.original_image:  # Only resize if there is an image
@@ -102,10 +101,10 @@ class ImageWidget:
 
 # Label class
 class LabelWidget:
-    def __init__(self, parent, text="Label", bg="white"):
+    def __init__(self, parent, text="Label", bg="white", x=0, y=0):
         self.label = tk.Label(parent.root if isinstance(parent, ScreenWidget) else parent.frame, text=text, bg=bg, width=20, height=1)
-        self.label.pack(pady=5)  # Use pack for better layout
-        yourTkCode.append(f"tk.Label(text='{text}', bg='{bg}', width=20, height=1)\nlabel.pack(pady=5)")
+        self.label.place(x=x, y=y)  # Use place to position
+        yourTkCode.append(f"tk.Label(text='{text}', bg='{bg}', width=20, height=1)\nlabel.place(x={x}, y={y})")
 
     def set_width(self, width):
         self.label.config(width=width)
@@ -113,19 +112,18 @@ class LabelWidget:
 
 # Checkbox class
 class CheckboxWidget:
-    def __init__(self, parent, text="Checkbox"):
+    def __init__(self, parent, text="Checkbox", x=0, y=0):
         self.var = tk.IntVar()
         self.checkbox = tk.Checkbutton(parent.root if isinstance(parent, ScreenWidget) else parent.frame, text=text, variable=self.var)
-        self.checkbox.pack(pady=5)  # Use pack for better layout
-        yourTkCode.append(f"tk.Checkbutton(text='{text}', variable=var)\ncheckbox.pack(pady=5)")
+        self.checkbox.place(x=x, y=y)  # Use place to position
+        yourTkCode.append(f"tk.Checkbutton(text='{text}', variable=var)\ncheckbox.place(x={x}, y={y})")
 
 # Frame class
 class FrameWidget:
-    def __init__(self, screen, width=300, height=200, bg="white"):
+    def __init__(self, screen, width=300, height=200, bg="white", x=0, y=0):
         self.frame = tk.Frame(screen.root, width=width, height=height, bg=bg)
-        self.frame.pack(pady=10)  # Use pack for better layout
-        self.frame.place(relx=0.5, rely=0.5, anchor='center')  # Center the frame in the root window
-        yourTkCode.append(f"tk.Frame(width={width}, height={height}, bg='{bg}')\nframe.pack(pady=10)\nframe.place(relx=0.5, rely=0.5, anchor='center')")
+        self.frame.place(x=x, y=y)  # Use place to position
+        yourTkCode.append(f"tk.Frame(width={width}, height={height}, bg='{bg}')\nframe.place(x={x}, y={y})")
 
     def set_width(self, width):
         self.frame.config(width=width)
