@@ -1,3 +1,5 @@
+#tkOOP
+#By Gustavo Rangel
 import tkinter as tk
 
 # List to track Tkinter actions
@@ -11,7 +13,7 @@ class ScreenWidget:
         self.root.title(title)
         self.root.geometry("600x400")  # Default size
         self.root.configure(bg=bg)
-        yourTkCode.append(f"tk.Tk()\nroot.title('{title}')\nroot.geometry('600x400')\nroot.configure(bg='{bg}')")
+        yourTkCode.append(f"root = tk.Tk()\nroot.title('{title}')\nroot.geometry('600x400')\nroot.configure(bg='{bg}')")
 
     def set_width(self, width):
         self.root.geometry(f"{width}x{self.root.winfo_height()}")
@@ -109,6 +111,10 @@ class LabelWidget:
     def set_width(self, width):
         self.label.config(width=width)
         yourTkCode.append(f"label.config(width={width})")
+    
+    def set_height(self, height):
+        self.label.config(height=height)
+        yourTkCode.append(f"label.config(width={height})")
 
 # Checkbox class
 class CheckboxWidget:

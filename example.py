@@ -5,7 +5,7 @@ from tkOOP import *  # Import everything from tkOOP
 if __name__ == "__main__":  # * Line used to start the GUI, everything inside the IF will be displayed
 
     # Create a window
-    app_screen = ScreenWidget(title="My App", bg="lightblue")
+    app_screen = ScreenWidget(title="MY SUPER APP", bg="lightblue")
 
     # Enable fullscreen if desired
     #app_screen.toggle_fullscreen()
@@ -14,7 +14,7 @@ if __name__ == "__main__":  # * Line used to start the GUI, everything inside th
     my_label = LabelWidget(parent=app_screen, text="Enter your name:", bg="lightblue", x=50, y=50)
 
     # Create and place an input field
-    my_input = InputWidget(parent=app_screen, bg="lightyellow", x=50, y=100)
+    my_input = InputWidget(parent=app_screen, bg="pink", x=50, y=100)
 
     # Create a button with a command
     def button_action():
@@ -24,8 +24,8 @@ if __name__ == "__main__":  # * Line used to start the GUI, everything inside th
     my_button.set_height(4)
     my_button.set_width(30)
 
-    # Load and place a PNG image (ensure "OIG4.png" is in the same directory)
-    my_image = ImageWidget(parent=app_screen, image_path="OIG4.png", x=300, y=50)
+    # Load and place a PNG image (ensure "example.png" is in the same directory)
+    my_image = ImageWidget(parent=app_screen, image_path="example.png", x=300, y=50)
     my_image.set_size(100, 100)  # Resize the image to 100x100 pixels
 
     # Create and place a checkbox
